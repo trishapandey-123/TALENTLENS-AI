@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TalentLens AI - Autonomous Technical Hiring Platform</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Font: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#f0f4f8] text-slate-800 min-h-screen antialiased flex flex-col justify-between">
+
+  <!-- ==================== SCREEN 1: LOGIN PORTAL (EXACT FIGMA REPLICA) ==================== -->
+  <section id="screen-1" class="min-h-screen flex flex-col justify-between p-4 md:p-8">
+    
+    <!-- Header / Navbar matching Figma top bar -->
+    <header class="flex items-center justify-between max-w-5xl w-full mx-auto py-3">
+      <div class="flex items-center gap-3">
+        <!-- TalentLens AI Flower Logo -->
+        <div class="w-10 h-10 relative flex items-center justify-center">
+          <svg class="w-9 h-9" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 4C20 12.8366 12.8366 20 4 20C12.8366 20 20 27.1634 20 36C20 27.1634 27.1634 20 36 20C27.1634 20 20 12.8366 20 4Z" fill="#0284c7" opacity="0.15"/>
+            <circle cx="14" cy="14" r="6" fill="#0d9488" />
+            <circle cx="26" cy="14" r="6" fill="#10b981" />
+            <circle cx="14" cy="26" r="6" fill="#f59e0b" />
+            <circle cx="26" cy="26" r="6" fill="#0284c7" />
+          </svg>
+        </div>
+        <span class="text-2xl font-bold tracking-tight text-slate-900">TalentLens <span class="text-sky-600">AI</span></span>
+      </div>
+      
+      <!-- Top Action Buttons -->
+      <div class="flex items-center gap-3">
+        <button type="button" onclick="navigateToScreen('screen-2')" class="px-7 py-2 rounded-full bg-[#10b981] hover:bg-[#059669] text-white text-xs font-semibold shadow-sm transition">
+          Sign In
+        </button>
+        <button type="button" class="px-7 py-2 rounded-full bg-[#0284c7] hover:bg-[#0369a1] text-white text-xs font-semibold shadow-sm transition">
+          Explore
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Card matching Figma Applicant Portal -->
+    <main class="flex-1 flex items-center justify-center py-6">
+      <div class="bg-white rounded-[24px] shadow-xl border border-slate-200/90 max-w-3xl w-full grid grid-cols-1 md:grid-cols-12 overflow-hidden">
+        
+        <!-- Left Column: Form Section (7 Columns) -->
+        <div class="p-8 md:p-12 md:col-span-7 flex flex-col justify-center">
+          <h2 class="text-lg font-extrabold tracking-wider text-[#0284c7] uppercase mb-7">
+            APPLICANT PORTAL
+          </h2>
+          
+          <form id="login-form" class="space-y-4" onsubmit="event.preventDefault(); navigateToScreen('screen-2');">
+            <!-- Email Input Pill -->
+            <div class="relative">
+              <i data-lucide="user" class="w-4 h-4 absolute left-4 top-3.5 text-slate-400"></i>
+              <input 
+                type="email" 
+                id="login-email" 
+                value="candidate@talentlens.ai" 
+                class="w-full pl-11 pr-4 py-2.5 rounded-full border border-slate-300 focus:border-[#0284c7] focus:ring-2 focus:ring-[#0284c7]/20 outline-none text-xs text-slate-700 bg-white shadow-inner transition" 
+                placeholder="Email Address" 
+                required 
+              />
+            </div>
+
+            <!-- Password Input Pill -->
+            <div class="relative">
+              <i data-lucide="lock" class="w-4 h-4 absolute left-4 top-3.5 text-slate-400"></i>
+              <input 
+                type="password" 
+                id="login-password" 
+                value="••••••••" 
+                class="w-full pl-11 pr-4 py-2.5 rounded-full border border-slate-300 focus:border-[#0284c7] focus:ring-2 focus:ring-[#0284c7]/20 outline-none text-xs text-slate-700 bg-white shadow-inner transition" 
+                placeholder="Password" 
+                required 
+              />
+            </div>
+
+            <!-- Options Row -->
+            <div class="flex items-center justify-between text-[11px] text-slate-500 pt-1 px-1">
+              <label class="flex items-center gap-1.5 cursor-pointer">
+                <input type="checkbox" checked class="w-3.5 h-3.5 rounded border-slate-300 text-[#0284c7] focus:ring-[#0284c7]" /> 
+                <span>Remember</span>
+              </label>
+              <a href="#" class="text-slate-400 hover:text-[#0284c7] transition">Forgot Password ?</a>
+            </div>
+
+            <!-- Green Sign In Button -->
+            <button 
+              type="submit" 
+              class="w-full py-2.5 rounded-full bg-[#10b981] hover:bg-[#059669] text-white font-bold text-xs tracking-wider shadow-md shadow-emerald-500/20 active:scale-[0.99] transition mt-2 flex items-center justify-center gap-2"
+            >
+              SIGN IN
+            </button>
+
+            <!-- Social Auth Divider -->
+            <div class="text-center pt-2">
+              <span class="text-[11px] text-slate-400 font-medium">Or connect using</span>
+            </div>
+
+            <!-- Social Login Buttons matching Figma -->
+            <div class="grid grid-cols-3 gap-2 pt-1">
+              <button type="button" class="py-1.5 px-2 rounded bg-[#1877F2] hover:opacity-95 text-white text-[11px] font-semibold flex items-center justify-center gap-1 shadow-sm transition">
+                <span>Facebook</span>
+              </button>
+              <button type="button" class="py-1.5 px-2 rounded bg-[#EA4335] hover:opacity-95 text-white text-[11px] font-semibold flex items-center justify-center gap-1 shadow-sm transition">
+                <span>Google</span>
+              </button>
+              <button type="button" class="py-1.5 px-2 rounded bg-[#0A66C2] hover:opacity-95 text-white text-[11px] font-semibold flex items-center justify-center gap-1 shadow-sm transition">
+                <span>LinkedIn</span>
+              </button>
+            </div>
+
+            <!-- Sign Up Prompt -->
+            <p class="text-center text-xs text-slate-500 pt-3">
+              Don't have an account? <a href="#" class="text-[#0284c7] font-semibold hover:underline">Sign Up</a>
+            </p>
+          </form>
+        </div>
+
+        <!-- Right Column: Figma Placeholder Artwork Box (5 Columns) -->
+        <div class="hidden md:flex md:col-span-5 bg-[#dbe2ea]/50 m-6 rounded-[20px] border border-slate-200 flex-col items-center justify-center p-6 text-center">
+          <div class="w-16 h-16 rounded-2xl bg-white shadow-md flex items-center justify-center text-[#0284c7] mb-3">
+            <i data-lucide="scan-face" class="w-8 h-8"></i>
+          </div>
+          <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">AI Proctored Assessment</h4>
+          <p class="text-[11px] text-slate-500 leading-relaxed max-w-[190px]">
+            Real-time technical validation &amp; automated ATS screening
+          </p>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-xs text-slate-400 py-2">
+      &copy; 2026 TalentLens AI. Quantitative hiring &amp; candidate evaluation intelligence.
+    </footer>
+  </section>
+
+  <!-- ==================== APP DASHBOARD WRAPPER (SCREENS 2, 3, 4) ==================== -->
+  <div id="app-container" class="hidden min-h-screen flex flex-col md:flex-row">
+    <!-- Blue Sidebar matching Figma Left Panel -->
+    <aside class="w-full md:w-64 bg-[#0284c7] text-white flex flex-col justify-between p-6 shrink-0 shadow-xl">
+      <div class="space-y-6">
+        <!-- Logo -->
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-white text-[#0284c7] flex items-center justify-center font-black text-sm">TL</div>
+          <h1 class="font-bold text-base tracking-wide">TalentLens AI</h1>
+        </div>
+
+        <!-- Candidate Profile Box -->
+        <div class="text-center pt-2 pb-5 border-b border-sky-400/40">
+          <div class="w-20 h-20 mx-auto rounded-full bg-white/20 p-1 mb-2">
+            <div class="w-full h-full rounded-full bg-white flex items-center justify-center text-[#0284c7] font-extrabold text-lg shadow-sm">
+              JD
+            </div>
+          </div>
+          <h3 class="font-bold text-sm tracking-wide">John Doe</h3>
+          <p class="text-[11px] text-sky-100 font-medium">Candidate Profile</p>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="space-y-1.5">
+          <button onclick="navigateToScreen('screen-2')" id="nav-btn-screen-2" class="nav-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold hover:bg-sky-500/70 transition text-left">
+            <i data-lucide="file-check-2" class="w-4 h-4"></i> ATS Screening
+          </button>
+          <button onclick="navigateToScreen('screen-3')" id="nav-btn-screen-3" class="nav-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold hover:bg-sky-500/70 transition text-left">
+            <i data-lucide="video" class="w-4 h-4"></i> Mock Interview
+          </button>
+          <button onclick="navigateToScreen('screen-4')" id="nav-btn-screen-4" class="nav-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold hover:bg-sky-500/70 transition text-left">
+            <i data-lucide="clipboard-check" class="w-4 h-4"></i> Final Report
+          </button>
+        </nav>
+      </div>
+
+      <!-- Logout -->
+      <button onclick="navigateToScreen('screen-1')" class="flex items-center gap-2 px-3.5 py-2 text-xs text-sky-200 hover:text-white transition mt-6">
+        <i data-lucide="log-out" class="w-4 h-4"></i> Logout
+      </button>
+    </aside>
+
+    <!-- Main Dynamic Content Workspace -->
+    <main class="flex-1 bg-[#f8fafc] min-h-screen p-6 md:p-10 overflow-y-auto">
+
+      <!-- ==================== SCREEN 2: ATS DASHBOARD ==================== -->
+      <section id="screen-2" class="app-screen space-y-6 max-w-5xl mx-auto">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-200 pb-5">
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-[#0284c7]">Resume Screening &amp; ATS Parsing</span>
+            <h2 class="text-2xl font-extrabold text-slate-800">Candidate ATS Qualification Dashboard</h2>
+          </div>
+          <button onclick="navigateToScreen('screen-3')" class="px-5 py-2.5 bg-[#0284c7] hover:bg-[#0369a1] text-white font-semibold text-xs rounded-xl shadow-sm flex items-center gap-2 transition">
+            Proceed to Interview <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Circular Match Card -->
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col items-center justify-center text-center">
+            <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">ATS Match Score</h4>
+            <div class="relative w-36 h-36 flex items-center justify-center mb-4">
+              <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                <path class="text-slate-100" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="text-[#10b981]" stroke-width="3.5" stroke-dasharray="78, 100" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              </svg>
+              <div class="absolute flex flex-col items-center justify-center">
+                <span class="text-3xl font-extrabold text-slate-800">78%</span>
+                <span class="text-[10px] text-[#10b981] font-bold uppercase tracking-wider">Strong Fit</span>
+              </div>
+            </div>
+            <p class="text-xs text-slate-500">Applicant resume parsed with verified technical competencies.</p>
+          </div>
+
+          <!-- JD vs Skills Match -->
+          <div class="lg:col-span-2 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+            <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider">JD vs Candidate Skills Match</h4>
+            
+            <div class="space-y-3 pt-1">
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span>React / Frontend Architecture</span>
+                  <span class="text-[#10b981] font-bold">92%</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2">
+                  <div class="bg-[#10b981] h-2 rounded-full" style="width: 92%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span>Node.js / Express &amp; API Design</span>
+                  <span class="text-[#10b981] font-bold">84%</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2">
+                  <div class="bg-[#10b981] h-2 rounded-full" style="width: 84%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span>Redis &amp; Caching Strategies</span>
+                  <span class="text-amber-500 font-bold">65%</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2">
+                  <div class="bg-amber-400 h-2 rounded-full" style="width: 65%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span>Distributed Architecture &amp; System Probing</span>
+                  <span class="text-[#0284c7] font-bold">70%</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2">
+                  <div class="bg-[#0284c7] h-2 rounded-full" style="width: 70%"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer Action Card -->
+            <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 bg-slate-50 p-3.5 rounded-xl">
+              <div>
+                <div class="text-xs font-bold text-slate-700">Recommended Next Step:</div>
+                <div class="text-[11px] text-slate-500">Technical Validation Round focusing on distributed caching &amp; edge cases.</div>
+              </div>
+              <button onclick="navigateToScreen('screen-3')" class="px-4 py-2 bg-[#10b981] hover:bg-[#059669] text-white font-semibold text-xs rounded-lg transition whitespace-nowrap">
+                Start Mock
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SCREEN 3: MOCK INTERVIEW ==================== -->
+      <section id="screen-3" class="app-screen space-y-6 max-w-5xl mx-auto hidden">
+        <div class="border-b border-slate-200 pb-5">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-[#0284c7]">Interview Preparation &amp; Real-time Probing</span>
+          <h2 class="text-2xl font-extrabold text-slate-800">Technical Mock Interview</h2>
+          <p class="text-xs text-slate-500 mt-1">Target Role: Full Stack Developer (React &amp; Node.js)</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="lg:col-span-2 space-y-4">
+            <!-- Question Card -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 bg-sky-100 text-[#0284c7] rounded-md text-[11px] font-bold uppercase">Question 1: System Design &amp; Architecture</span>
+                <span class="text-xs text-slate-400 font-mono">03:45 remaining</span>
+              </div>
+              <h3 class="font-bold text-slate-800 text-sm">
+                How would you design a real-time notification service for 500k concurrent active users using WebSockets and Redis pub/sub?
+              </h3>
+            </div>
+
+            <!-- Candidate Answer Textarea -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+              <label class="block text-xs font-bold text-slate-600 uppercase">Candidate Response (STAR Format)</label>
+              <textarea id="candidate-response" rows="5" class="w-full p-3.5 border border-slate-200 rounded-xl text-xs text-slate-700 focus:ring-2 focus:ring-[#0284c7] focus:outline-none" placeholder="Explain your Situation, Task, Action, and measurable Result...">I would decouple WebSocket connection servers horizontally and use a Redis Pub/Sub cluster as the centralized message bus. When an event triggers, worker nodes publish to Redis channels, broadcasting directly to connected socket clients with fallback exponential backoff.</textarea>
+              
+              <div class="flex justify-between items-center pt-2">
+                <span class="text-[11px] text-[#10b981] flex items-center gap-1 font-semibold">
+                  <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Speech-to-Text Connected &amp; Transcribing
+                </span>
+                <button type="button" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs rounded-lg font-medium transition">
+                  Clear
+                </button>
+              </div>
+            </div>
+
+            <!-- Probing Callout -->
+            <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-amber-500 text-white flex items-center justify-center shrink-0">
+                <i data-lucide="bot" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-amber-900 uppercase tracking-wide">AI Follow-up Probing Question:</h4>
+                <p class="text-xs text-amber-800 mt-1">
+                  "How would your Redis pub/sub cluster prevent message loss during a sudden socket pod crash or network partition?"
+                </p>
+              </div>
+            </div>
+
+            <!-- Navigation Button -->
+            <div class="flex justify-end pt-2">
+              <button onclick="navigateToScreen('screen-4')" class="px-6 py-2.5 bg-[#10b981] hover:bg-[#059669] text-white font-bold text-xs rounded-xl shadow-md shadow-emerald-500/20 transition flex items-center gap-2">
+                Submit &amp; Generate Evaluation <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Evaluation Rubric Sidebar -->
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+            <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider">Evaluation Rubric</h4>
+            <div class="space-y-3 text-xs">
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                <span class="font-bold text-slate-700 block">Difficulty &amp; Topic</span>
+                <span class="text-slate-500">Distributed WebSockets (High)</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                <span class="font-bold text-slate-700 block">Evaluation Target</span>
+                <span class="text-slate-500">Horizontal Scalability &amp; Pub/Sub</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                <span class="font-bold text-slate-700 block">Candidate Probing Hit</span>
+                <span class="text-[#10b981] font-semibold">Redis pub/sub, decoupled workers</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SCREEN 4: FINAL REPORT ==================== -->
+      <section id="screen-4" class="app-screen space-y-6 max-w-5xl mx-auto hidden">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-200 pb-5">
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-[#0284c7]">Final Report</span>
+            <h2 class="text-2xl font-extrabold text-slate-800">Comprehensive Evaluation Summary</h2>
+            <p class="text-xs text-slate-500 mt-1">John Doe &bull; Full Stack Developer</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold uppercase text-slate-500">Overall Score:</span>
+            <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 font-extrabold text-sm rounded-xl border border-emerald-300">85% Qualified</span>
+          </div>
+        </div>
+
+        <!-- Evaluation Table -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="p-4 bg-slate-50 border-b border-slate-200 flex justify-between items-center">
+            <h3 class="text-xs font-bold uppercase text-slate-700 tracking-wider">AI Competency Breakdown &amp; Recommendation</h3>
+            <span class="text-xs text-slate-400">Standardized STAR Rubric</span>
+          </div>
+          
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-100 text-slate-600 font-bold uppercase text-[11px] border-b border-slate-200">
+                <tr>
+                  <th class="py-3 px-4">Evaluation Domain</th>
+                  <th class="py-3 px-4">Rating</th>
+                  <th class="py-3 px-4">AI Key Remark</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100">
+                <tr class="hover:bg-slate-50/80 transition">
+                  <td class="py-3.5 px-4 font-semibold text-slate-700">ATS Resume Match</td>
+                  <td class="py-3.5 px-4 text-amber-500 font-medium">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+                  <td class="py-3.5 px-4 text-slate-600">Strong React &amp; Node foundation</td>
+                </tr>
+                <tr class="hover:bg-slate-50/80 transition">
+                  <td class="py-3.5 px-4 font-semibold text-slate-700">System Architecture</td>
+                  <td class="py-3.5 px-4 text-amber-500 font-medium">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+                  <td class="py-3.5 px-4 text-slate-600">Good Redis pub/sub clustering logic</td>
+                </tr>
+                <tr class="hover:bg-slate-50/80 transition">
+                  <td class="py-3.5 px-4 font-semibold text-slate-700">Adaptive Probing</td>
+                  <td class="py-3.5 px-4 text-amber-500 font-medium">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+                  <td class="py-3.5 px-4 text-slate-600">Needs practice on exponential backoff</td>
+                </tr>
+                <tr class="hover:bg-slate-50/80 transition">
+                  <td class="py-3.5 px-4 font-semibold text-slate-700">Project Authenticity</td>
+                  <td class="py-3.5 px-4 text-amber-500 font-medium">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+                  <td class="py-3.5 px-4 text-slate-600">Verified hands-on code understanding</td>
+                </tr>
+                <tr class="hover:bg-slate-50/80 transition">
+                  <td class="py-3.5 px-4 font-semibold text-slate-700">STAR Methodology</td>
+                  <td class="py-3.5 px-4 text-amber-500 font-medium">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+                  <td class="py-3.5 px-4 text-slate-600">Structured problem &amp; solution flow</td>
+                </tr>
+                <tr class="hover:bg-slate-50/80 transition">
+                  <td class="py-3.5 px-4 font-semibold text-slate-700">Code &amp; Edge Cases</td>
+                  <td class="py-3.5 px-4 text-amber-500 font-medium">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+                  <td class="py-3.5 px-4 text-slate-600">Handled reconnects &amp; rate limits</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Bottom Footer Navigation Inside Card -->
+          <div class="p-4 bg-slate-50 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500">
+            <div class="flex items-center gap-4 font-medium">
+              <a href="#" class="hover:text-[#0284c7]">Overview</a>
+              <span>|</span>
+              <a href="#" class="hover:text-[#0284c7]">Download PDF</a>
+              <span>|</span>
+              <a href="#" class="hover:text-[#0284c7]">Share with HR</a>
+              <span>|</span>
+              <a href="#" class="hover:text-[#0284c7]">Rubric</a>
+            </div>
+            <div class="text-[11px] text-slate-400">
+              &copy; 2026 TalentLens AI. Quantitative hiring &amp; candidate evaluation intelligence.
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
